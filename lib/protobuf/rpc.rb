@@ -1,10 +1,7 @@
-require 'protobuf/core'
-
-require 'protobuf/rpc'
+require 'protobuf'
 require 'protobuf/rpc/version'
 
 module Protobuf
-
   # See Protobuf#connector_type documentation.
   CONNECTORS = [:socket, :zmq].freeze
 
@@ -66,7 +63,7 @@ end
 # Leaving this in place because you might want to debug protobuf without networking
 unless ENV.key?('PB_NO_NETWORKING')
   require 'protobuf/rpc/client'
-  require 'protobuf/rpc/service'
+  require_relative 'rpc/service'
 
   env_connector_type = ENV.fetch('PB_CLIENT_TYPE') do
     ::Protobuf::DEFAULT_CONNECTOR
