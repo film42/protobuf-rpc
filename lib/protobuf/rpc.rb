@@ -63,7 +63,7 @@ end
 # Leaving this in place because you might want to debug protobuf without networking
 unless ENV.key?('PB_NO_NETWORKING')
   require 'protobuf/rpc/client'
-  require_relative 'rpc/service'
+  require 'protobuf/rpc/service'
 
   env_connector_type = ENV.fetch('PB_CLIENT_TYPE') do
     ::Protobuf::DEFAULT_CONNECTOR
